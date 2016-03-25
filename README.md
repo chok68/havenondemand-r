@@ -94,7 +94,7 @@ result <- tryCatch({
     print (jobID)
 
     # check job status using the getJobStatus method call
-    # If job status is finished then getJobStatus method itself will return job data as part of response
+    # If job status is finished then getJobStatus method itself will return job data as part of response. If job is not finished yet, it will return queued response.
     jobStatus <- client$getJobStatus(jobID)
     print (jobStatus)
 
@@ -140,7 +140,7 @@ result <- tryCatch({
     print (jobID)
 
     # check job status using the getJobStatus method call
-    # If job status is finished then getJobStatus method itself will return job data as part of response
+    # If job status is finished then getJobStatus method itself will return job data as part of response. If job is not finished yet, it will return queued response.
     jobStatus <- client$getJobStatus(jobID)
     print (jobStatus)
 
