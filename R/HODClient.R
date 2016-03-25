@@ -7,7 +7,7 @@ library(httr)
 
 # Constructor
 # @param apiKey Api Key of the user
-# @param version Version of the api call should be made
+# @param version Version of the api call should be made (v1, v2)
 HODClient <- function(apikey = NULL, version = HODClientConstants$DEFAULT_VERSION)
 {
 
@@ -59,10 +59,10 @@ HODClient <- function(apikey = NULL, version = HODClientConstants$DEFAULT_VERSIO
     },
 
     #
-    # Get URL to call the end point
+    # Get URL to call the endpoint
     #
     # @param hodApp method to call
-    # @param version version no
+    # @param version version no. (v1, v2)
     # @mode SYNC/ASYNC
     getUrlString = function(hodApp, version, mode) {
       callMode = tolower(c(mode))
@@ -83,10 +83,10 @@ HODClient <- function(apikey = NULL, version = HODClientConstants$DEFAULT_VERSIO
 
     # calls POST Request
     #
-    # @param hodApp end point to be called
+    # @param hodApp endpoint to be called
     # @param params params to be passed
     # @param mode sync/async
-    # @return json response
+    # @return json response (returned response varies depending on the endpoint called, check the API docs: https://dev.havenondemand.com/apis)
     postRequest = function(hodApp, params, mode)
     {
       apikey = get("apikey",thisEnv)
@@ -98,11 +98,12 @@ HODClient <- function(apikey = NULL, version = HODClientConstants$DEFAULT_VERSIO
     },
 
     # Send request to HOD API server
-    # Call appropiate end point  method
+    # Call appropiate endpoint  method
     # All the calls are passed through this method
     # @param path Path for the API
     # @param apikey API Key of the user
     # @param params data to be passed
+    # @return json response (returned response varies depending on the endpoint called, check the API docs: https://dev.havenondemand.com/apis)
     invokeHODApi = function(path, apikey, params)
     {
       # add apikey to request body
@@ -123,6 +124,7 @@ HODClient <- function(apikey = NULL, version = HODClientConstants$DEFAULT_VERSIO
 
     # Get status of the job submitted
     # @param jobId id of the job submitted
+    # @return json response (returned response varies depending on the endpoint called, check the API docs: https://dev.havenondemand.com/apis)
     getJobStatus = function(jobID)
     {
 
@@ -138,6 +140,7 @@ HODClient <- function(apikey = NULL, version = HODClientConstants$DEFAULT_VERSIO
 
     # Get result of the job submitted
     # @param jobId id of the job submitted
+    # @return json response (returned response varies depending on the endpoint called, check the API docs: https://dev.havenondemand.com/apis)
     getJobResult = function(jobID)
     {
       jobResultUrl = me$getJobResultURLString()

@@ -46,12 +46,11 @@ client <- HODClient(apikey = "your-api-key")
 
 ### Sample post sync call (INDEX_STATUS)
 
+NOTE: in this sample, we check index status for an existing index called 'test'. If you don't have this index created call will fail. Use another index name if this is the case.
+
 ``` R
 # include havenondemand library
 library(havenondemand)
-
-# initialize HOD Client
-client <- HODClient(apikey = apikey)
 
 # initialize HOD Client
 client <- HODClient(apikey = "your-api-key")
