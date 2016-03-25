@@ -53,10 +53,6 @@ library(havenondemand)
 # initialize HOD Client
 client <- HODClient(apikey = apikey)
 
-# get response
-# include havenondemand library
-library(havenondemand)
-
 # initialize HOD Client
 client <- HODClient(apikey = "your-api-key")
 
