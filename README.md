@@ -218,7 +218,7 @@ client <- HODClient(apikey = "your-api-key")
 # call that result in error ('ur' parameter is wrong, it should be 'url')
 
 result <- tryCatch({
-    client$postRequest(hodApp = HODApp$SPEECH_RECOGNITION, params = list(ur = "https://www.havenondemand.com/sample-content/videos/hpnext.mp4"), mode = "aSyNc")
+    client$postRequest(hodApp = HODApp$SPEECH_RECOGNITION, params = list(ur = "https://www.havenondemand.com/sample-content/videos/hpnext.mp4"), HODClientConstants$REQUEST_MODE$ASYNC)
 }, warning = function(w) {
     print('Warning block called.')
 }, error = function(e) {
