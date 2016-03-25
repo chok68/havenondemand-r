@@ -60,8 +60,7 @@ library(havenondemand)
 # initialize HOD Client
 client <- HODClient(apikey = "your-api-key")
 
-# call that result in error ('ur' parameter is wrong, it should be 'url')
-
+# Make api call
 result <- tryCatch({
     client$postRequest(params = list(index = "test"), hodApp = HODApp$INDEX_STATUS, mode = HODClientConstants$REQUEST_MODE$SYNC)
 }, warning = function(w) {
