@@ -61,6 +61,7 @@ result <- tryCatch({
     client$postRequest(hodApp = HODApp$INDEX_STATUS, params = list(index = "test"), mode = HODClientConstants$REQUEST_MODE$SYNC)
 }, warning = function(w) {
     print('Warning block called.')
+    print(w)
 }, error = function(e) {
     print('Error block called.')
     print(e)
@@ -103,6 +104,7 @@ result <- tryCatch({
 
 }, warning = function(w) {
     print('Warning block called.')
+    print(w)
 }, error = function(e) {
     print('Error block called.')
     print(e)
@@ -148,6 +150,7 @@ result <- tryCatch({
 
 }, warning = function(w) {
     print('Warning block called.')
+    print(w)
 }, error = function(e) {
     print('Error block called.')
     print(e)
@@ -196,6 +199,7 @@ result <- tryCatch({
 
 }, warning = function(w) {
     print('Warning block called.')
+    print(w)
 }, error = function(e) {
     print('Error block called.')
     print(e)
@@ -221,6 +225,7 @@ result <- tryCatch({
     client$postRequest(hodApp = HODApp$SPEECH_RECOGNITION, params = list(ur = "https://www.havenondemand.com/sample-content/videos/hpnext.mp4"), HODClientConstants$REQUEST_MODE$ASYNC)
 }, warning = function(w) {
     print('Warning block called.')
+    print(w)
 }, error = function(e) {
     print('Error block called.')
     print(e)
