@@ -37,10 +37,10 @@ devtools::install_github("chok68/havenondemand-r")
 # include havenondemand library
 library(havenondemand)
 
-# with apikey and version
+# with apikey and version. NOTE: replace your-api-key with one of your API keys (from your HPE OnDemand account keys) 
 client <- HODClient(apikey = "your-api-key", version = "v1")
 
-# with apikey (version will default to v1)
+# with apikey (version will default to v1). NOTE: replace your-api-key with one of your API keys (from your HPE OnDemand account keys) 
 client <- HODClient(apikey = "your-api-key")
 ```
 
@@ -52,7 +52,7 @@ NOTE: in this sample, we check index status for an existing index called 'test'.
 # include havenondemand library
 library(havenondemand)
 
-# initialize HOD Client
+# initialize HOD Client. NOTE: replace your-api-key with one of your API keys (from your HPE OnDemand account keys) 
 client <- HODClient(apikey = "your-api-key")
 
 # Make api call
@@ -78,7 +78,7 @@ print(result)
 # include havenondemand library
 library(havenondemand)
 
-# initialize HOD Client
+# initialize HOD Client. NOTE: replace your-api-key with one of your API keys (from your HPE OnDemand account keys) 
 client <- HODClient(apikey = "your-api-key")
 
 result <- tryCatch({
@@ -121,7 +121,7 @@ print(result)
 # include havenondemand library
 library(havenondemand)
 
-# initialize HOD Client
+# initialize HOD Client. NOTE: replace your-api-key with one of your API keys (from your HPE OnDemand account keys) 
 client <- HODClient(apikey = "your-api-key")
 
 result <- tryCatch({
@@ -168,7 +168,7 @@ This code illustrates how to create, add to, and query index. This code is also 
 # include havenondemand library
 library(havenondemand)
 
-# initialize HOD Client
+# initialize HOD Client. NOTE: replace your-api-key with one of your API keys (from your HPE OnDemand account keys) 
 client <- HODClient(apikey = "your-api-key")
 
 result <- tryCatch({
@@ -215,7 +215,7 @@ All the calls call stop(message) if an error is detected:
 # include havenondemand library
 library(havenondemand)
 
-# initialize HOD Client
+# initialize HOD Client. NOTE: replace your-api-key with one of your API keys (from your HPE OnDemand account keys) 
 client <- HODClient(apikey = "your-api-key")
 
 # call that result in error ('ur' parameter is wrong, it should be 'url')
