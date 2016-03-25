@@ -257,6 +257,6 @@ result <- tryCatch({
 ```
 
 ## Contributing
-TODO: Pending from HPE Ondemand team
+TODO: Pending from HPE Haven OnDemand Team
 
 
