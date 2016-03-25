@@ -62,7 +62,7 @@ client <- HODClient(apikey = "your-api-key")
 
 # Make api call
 result <- tryCatch({
-    client$postRequest(params = list(index = "test"), hodApp = HODApp$INDEX_STATUS, mode = HODClientConstants$REQUEST_MODE$SYNC)
+    client$postRequest(hodApp = HODApp$INDEX_STATUS, params = list(index = "test"), mode = HODClientConstants$REQUEST_MODE$SYNC)
 }, warning = function(w) {
     print('Warning block called.')
 }, error = function(e) {
@@ -88,9 +88,9 @@ client <- HODClient(apikey = "your-api-key")
 result <- tryCatch({
 
     # create client get job id
-    r <- client$postRequest(params = 
+    r <- client$postRequest(hodApp = HODApp$LIST_RESOURCES, params = 
            list(flavor = 'standard', flavor = 'explorer', type = 'content', type = 'connector')
-           , hodApp = HODApp$LIST_RESOURCES, mode = HODClientConstants$REQUEST_MODE$ASYNC)
+           , mode = HODClientConstants$REQUEST_MODE$ASYNC)
 
     # get job id
     jobID = r$jobID
@@ -132,10 +132,10 @@ result <- tryCatch({
     # create client get job id
 
     # upload a file named 'broch.pdf' in drive c: (windows os), adjust path to your os / file name.
-    r <- client$postRequest(params = list(
+    r <- client$postRequest(hodApp = HODApp$TEXT_EXTRACTION, params = list(
             file = httr::upload_file("c:/broch.pdf"),
             file = httr::upload_file("c:/HP_License_terms_may2012.doc"))
-           , hodApp = HODApp$TEXT_EXTRACTION, mode = HODClientConstants$REQUEST_MODE$ASYNC)
+           , mode = HODClientConstants$REQUEST_MODE$ASYNC)
 
     # get job id
     jobID = r$jobID
@@ -177,22 +177,22 @@ result <- tryCatch({
 
     # STEP 1: call create text index (this call is required
     #    one time only per index life)
-    client$postRequest(params = list(index = "myindex", flavor = "explorer"), hodApp = HODApp$CREATE_TEXT_INDEX,
+    client$postRequest(hodApp = HODApp$CREATE_TEXT_INDEX, params = list(index = "myindex", flavor = "explorer"),
        mode = HODClientConstants$REQUEST_MODE$SYNC)
 
     # STEP 2: call add to text index (we're indexing this entry:
     #    https://en.wikipedia.org/wiki/Hewlett_Packard_Enterprise_Software
-    client$postRequest(params = list(url = "https://en.wikipedia.org/wiki/Hewlett_Packard_Enterprise_Software",
-       index = "myindex"), hodApp = HODApp$ADD_TO_TEXT_INDEX, mode = HODClientConstants$REQUEST_MODE$SYNC)
+    client$postRequest(hodApp = HODApp$ADD_TO_TEXT_INDEX, params = list(url = "https://en.wikipedia.org/wiki/Hewlett_Packard_Enterprise_Software",
+       index = "myindex"), mode = HODClientConstants$REQUEST_MODE$SYNC)
 
     # STEP 3: call add to text index (we're indexing this entry:
     #    https://en.wikipedia.org/wiki/HP_Information_Management_Software
-    client$postRequest(params = list(url = "https://en.wikipedia.org/wiki/HP_Information_Management_Software",
-        index = "myindex"), hodApp = HODApp$ADD_TO_TEXT_INDEX, mode = HODClientConstants$REQUEST_MODE$SYNC)
+    client$postRequest(hodApp = HODApp$ADD_TO_TEXT_INDEX, params = list(url = "https://en.wikipedia.org/wiki/HP_Information_Management_Software",
+        index = "myindex"), mode = HODClientConstants$REQUEST_MODE$SYNC)
 
     # STEP 4: query text index
-    r <- client$postRequest(params = list(text = "their applications and databases are growing", 
-        indexes = "myindex"), hodApp = HODApp$QUERY_TEXT_INDEX, mode = HODClientConstants$REQUEST_MODE$SYNC)
+    r <- client$postRequest(hodApp = HODApp$QUERY_TEXT_INDEX, params = list(text = "their applications and databases are growing", 
+        indexes = "myindex"), mode = HODClientConstants$REQUEST_MODE$SYNC)
     d = r$documents
 
     # STEP 5: show the reference (for document index=1) that matched our search
@@ -222,7 +222,7 @@ client <- HODClient(apikey = "your-api-key")
 # call that result in error ('ur' parameter is wrong, it should be 'url')
 
 result <- tryCatch({
-    client$postRequest(params = list(ur = "https://www.havenondemand.com/sample-content/videos/hpnext.mp4"), hodApp = "recognizespeech", mode = "aSyNc")
+    client$postRequest(hodApp = HODApp$SPEECH_RECOGNITION, params = list(ur = "https://www.havenondemand.com/sample-content/videos/hpnext.mp4"), mode = "aSyNc")
 }, warning = function(w) {
     print('Warning block called.')
 }, error = function(e) {
@@ -244,7 +244,7 @@ result <- tryCatch({
     # @param hodApp end point to be called
     # @param mode sync/async
     # @return json response
-    postRequest = function(params, hodApp, mode)
+    postRequest = function(hodApp, params, mode)
 ```
 
 

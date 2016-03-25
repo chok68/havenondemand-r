@@ -83,11 +83,11 @@ HODClient <- function(apikey = NULL, version = HODClientConstants$DEFAULT_VERSIO
 
     # calls POST Request
     #
-    # @param params params to be passed
     # @param hodApp end point to be called
+    # @param params params to be passed
     # @param mode sync/async
     # @return json response
-    postRequest = function(params, hodApp, mode)
+    postRequest = function(hodApp, params, mode)
     {
       apikey = get("apikey",thisEnv)
       version = get("version",thisEnv)
